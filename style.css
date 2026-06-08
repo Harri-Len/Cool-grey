@@ -1,0 +1,372 @@
+/* --- VARIABLES & RESET --- */
+:root {
+    --primary-blue: #0B36BB; /* Adjust to exact Figma hex */
+    --dark-blue: #092B96;
+    --gold: #C09B3E;
+    --brown: #8B6914;
+    --light-bg: #EAF3FA;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+h1, h2, h3 { font-family: 'Merriweather', serif; }
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: var(--primary-blue);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.nav-links {
+    list-style: none;
+    width: 752px;
+    display: flex;
+    gap: 74px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 80vh;
+    background-image: url('firstpageimage.png'); /* Update path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* Darkens the image so text pops */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn-listen {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 10px 30px;
+    background-color: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* --- FLOATING SOCIALS --- */
+.floating-socials {
+    position: absolute;
+    bottom: -25px; /* Pulls it halfway out of the hero section */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-blue);
+    padding: 15px 30px;
+    border-radius: 5px;
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+.floating-socials a { color: white; font-size: 1.2rem; }
+
+/* --- ABOUT SECTION --- */
+.about-section {
+    background-color: var(--light-bg);
+    padding: 8rem 5% 5rem; /* Extra top padding for floating socials */
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
+
+.about-text { width: 45%; }
+.about-text h2 { color: var(--primary-blue); margin-bottom: 1rem; }
+.about-text ul { padding-left: 20px; line-height: 1.8; color: #555; }
+
+.about-images {
+    width: 50%;
+    position: relative;
+    height: 300px;
+}
+
+/* Overlapping Image Logic */
+.about-images img {
+    position: absolute;
+    
+}
+.img-back { top: 50; right: 0; width: 55%; z-index: 1; }
+.img-front { bottom: 0; left: 0; width: 60%; z-index: 2; }
+
+/* --- MISSION SECTION --- */
+.mission-section {
+    padding: 5rem 5%;
+    display: flex;
+    gap: 5%;
+    align-items: center;
+}
+
+.mission-images.grid-layout {
+    width: 45%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.mission-images img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.mission-text-container {
+    width: 50%;
+    position: relative;
+}
+
+.mission-box {
+    background-color: var(--brown);
+    color: white;
+    padding: 3rem;
+    text-align: center;
+}
+
+.values-box {
+    background-color: var(--primary-blue);
+    color: white;
+    width: 80%;
+    margin: -30px auto 0; /* Pulls it up to overlap the brown box */
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.values-list {
+    column-count: 2; /* Splits the list into 2 columns */
+    list-style-position: inside;
+}
+
+/* --- PROGRAMMES SECTION --- */
+.programmes-section {
+    padding: 5rem 5%;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-blue);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    margin-bottom: 3rem;
+}
+
+.programmes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card-content { padding: 1.5rem; }
+.card-content h3 { color: var(--primary-blue); margin: 10px 0; font-size: 1.1rem;}
+.see-more { color: var(--primary-blue); text-decoration: none; font-weight: bold; }
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: var(--primary-blue);
+    color: white;
+    padding-top: 4rem;
+}
+
+.footer-top, .footer-middle, .footer-bottom {
+    padding: 2rem 5%;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.footer-stats { display: flex; gap: 3rem; }
+
+.footer-middle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-links {
+    display: flex;
+    gap: 4rem;
+}
+
+.footer-links ul { list-style: none; line-height: 2; }
+.footer-links a { color: #ccc; text-decoration: none; }
+
+.newsletter input {
+    padding: 10px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+.newsletter button {
+    padding: 10px 20px;
+    background-color: var(--gold);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+}
+
+.footer-bottom-links a { color: white; text-decoration: none; margin: 0 5px;}
+.footer-socials a { color: white; margin-left: 15px; font-size: 1.2rem; }
+
+/* --- GALLERY SECTIONS --- */
+.gallery-section {
+    padding: 3rem 5%;
+}
+
+.gallery-main-title {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.gallery-main-title span {
+    color: #333; /* The dark text in the title */
+}
+
+.gallery-main-title.left-align {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+/* The thin gold line with text */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-divider.left-align {
+    margin-left: 0;
+    width: 50%;
+}
+
+.divider-text {
+    color: var(--gold);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.divider-line {
+    height: 1px;
+    background-color: var(--gold);
+    width: 100%;
+}
+
+/* --- LEADERSHIP GRID --- */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.leader-card {
+    text-align: center;
+}
+
+.leader-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.leader-card h4 {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.leader-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* --- COMPLEX PHOTO GRIDS --- */
+/* This handles the gray placeholder boxes and image mapping */
+.mic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 150px;
+    gap: 15px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 150px;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.grid-box {
+    background-color: #d9d9d9; /* The gray placeholder color */
+    width: 100%;
+    height: 100%;
+}
+
+.grid-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Makes specific boxes stretch down two rows to match the Figma design */
+.grid-box.tall {
+    grid-row: span 2;
+}
